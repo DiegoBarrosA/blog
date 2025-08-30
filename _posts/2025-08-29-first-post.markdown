@@ -1,15 +1,8 @@
 ---
 layout: post
-title: "My First Post"
-date: 2025-08-29
----
-# My  First Post
-
-Hello, world!
----
-layout: post
 title: "Welcome to my blog"
 date: 2025-08-29
+author: Diego Barros
 ---
 
 # Hello World!
@@ -49,3 +42,4 @@ def hello_world():
     print("Hello, world!")
 
 hello_world()
+```
