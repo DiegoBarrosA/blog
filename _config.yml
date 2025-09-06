@@ -1,3 +1,5 @@
+# Consistent permalinks for posts and pages
+permalink: /:categories/:year/:month/:day/:title/
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
