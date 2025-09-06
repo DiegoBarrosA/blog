@@ -17,34 +17,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://diegobarrosa.github.io/diegobarrosaraya-assets/shared-theme.css">
+  <link rel="stylesheet" href="https://diegobarrosa.github.io/diegobarrosaraya-assets/shared-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
 </head>
 
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;background:#212121;color:#fff;z-index:100;">Skip to main content</a>
   <nav class="main-nav" style="margin: 0 auto; max-width: 800px; padding: 20px 0 0 0; text-align: center;">
-    <a href="https://diegobarrosaraya.com/">Home</a> |
-    <a href="https://blog.diegobarrosaraya.com/">Blog</a> |
-    <a href="https://docs.diegobarrosaraya.com/">Docs</a>
+    <a href="https://diegobarrosaraya.com/"><i class="fa-solid fa-house"></i> Home</a> |
+    <a href="https://blog.diegobarrosaraya.com/"><i class="fa-solid fa-blog"></i> Blog</a> |
+    <a href="https://docs.diegobarrosaraya.com/"><i class="fa-solid fa-book"></i> Docs</a>
   </nav>
   <div id="main-content" class="container">
     {{ content }}
-
-    <div class="social-links">
-      <h2>Contact</h2>
-      <p>
-        <i class="fa-solid fa-envelope"></i>
-        <a href="mailto:{{ site.data.social.email }}">{{ site.data.social.email }}</a>
-      </p>
-      <p>
-        <i class="fa-brands fa-linkedin"></i>
-        <a href="{{ site.data.social.linkedin }}" target="_blank">linkedin.com/in/diegobarrosaraya</a>
-      </p>
-      <p>
-        <i class="fa-brands fa-github"></i>
-        <a href="{{ site.data.social.github }}" target="_blank">github.com/DiegoBarrosA</a>
-      </p>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <span><i class="fa-solid fa-envelope"></i> <a href="mailto:{{ site.data.social.email }}">{{ site.data.social.email }}</a></span>
+      <span><i class="fa-brands fa-linkedin"></i> <a href="{{ site.data.social.linkedin }}" target="_blank">LinkedIn</a></span>
+      <span><i class="fa-brands fa-github"></i> <a href="{{ site.data.social.github }}" target="_blank">GitHub</a></span>
+      <span><i class="fa-solid fa-blog"></i> <a href="https://blog.diegobarrosaraya.com/">Blog</a> <span>|</span> <i class="fa-solid fa-rss"></i> <a href="https://blog.diegobarrosaraya.com/feed.xml">RSS</a></span>
+      <span><i class="fa-solid fa-book"></i> <a href="https://docs.diegobarrosaraya.com/">Docs</a> <span>|</span> <i class="fa-solid fa-rss"></i> <a href="https://docs.diegobarrosaraya.com/feed.xml">RSS</a></span>
     </div>
+  </footer>
   </div>
 </body>
 
