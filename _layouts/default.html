@@ -24,9 +24,10 @@
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;background:#212121;color:#fff;z-index:100;">Skip to main content</a>
   <nav class="main-nav" style="margin: 0 auto; max-width: 800px; padding: 20px 0 0 0; text-align: center;">
-    <a href="https://diegobarrosaraya.com/"><i class="fa-solid fa-house"></i> Home</a> |
-    <a href="https://blog.diegobarrosaraya.com/"><i class="fa-solid fa-blog"></i> Blog</a> |
-    <a href="https://docs.diegobarrosaraya.com/"><i class="fa-solid fa-book"></i> Docs</a>
+  <a href="https://diegobarrosaraya.com/"><i class="fa-solid fa-house"></i> Home</a> |
+  <a href="https://blog.diegobarrosaraya.com/"><i class="fa-solid fa-blog"></i> Blog</a> |
+  <a href="https://docs.diegobarrosaraya.com/"><i class="fa-solid fa-book"></i> Docs</a>
+  <button class="theme-toggle" aria-label="Toggle dark/light mode" style="vertical-align:middle;"><i class="fa-solid fa-moon"></i></button>
   </nav>
   <div id="main-content" class="container">
     {{ content }}
@@ -43,4 +44,19 @@
   </div>
 </body>
 
+<script>
+  const btn = document.querySelector('.theme-toggle');
+  btn && btn.addEventListener('click', () => {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+  });
+  // On load, set theme from localStorage
+  const saved = localStorage.getItem('theme');
+  if(saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    btn && (btn.innerHTML = saved === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>');
+  }
+</script>
 </html>
