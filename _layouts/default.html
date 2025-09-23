@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://diegobarrosa.github.io/diegobarrosaraya-assets/shared-theme.css">
   <link rel="stylesheet" href="https://diegobarrosa.github.io/diegobarrosaraya-assets/shared-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <script src="https://diegobarrosa.github.io/diegobarrosaraya-assets/shared-theme.js"></script>
 </head>
 
 <body>
@@ -44,17 +45,21 @@
   </div>
 </body>
 
+<!-- Theme management is handled by shared-theme.js -->
+<!-- Fallback script in case shared-theme.js fails to load -->
 <script>
-  const btn = document.querySelector('.theme-toggle');
-  btn && btn.addEventListener('click', () => {
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-  });
-  // On load, set theme from localStorage
-  const saved = localStorage.getItem('theme');
-  if(saved) {
+  // Simple fallback theme toggle if shared script fails
+  if (!window.ThemeManager) {
+    const btn = document.querySelector('.theme-toggle');
+    btn && btn.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    });
+    
+    // Simple initialization
+    const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
     btn && (btn.innerHTML = saved === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>');
   }
